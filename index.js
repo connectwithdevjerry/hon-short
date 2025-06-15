@@ -14,7 +14,6 @@ app.post("/my-n8n-endpoint", async (req, res) => {
     "https://n8n.srv805351.hstgr.cloud/webhook-test/real-estate-upload",
     {
       method: req.method,
-      headers: { ...req.headers },
       body: req.body,
     }
   );
