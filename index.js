@@ -10,16 +10,23 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json({ limit: "10mb" }));
 
 app.post("/my-n8n-endpoint", async (req, res) => {
-  const response = await fetch(
-    "https://n8n.srv805351.hstgr.cloud/webhook-test/real-estate-upload",
-    {
-      method: req.method,
-      body: req.body,
+  try {
+    const response = await fetch(
+      "https://n8n.srv805351.hstgr.cloud/webhook-test/real-estate-upload",
+      {
+        method: req.method,
+        body: req.body,
+      }
+    );
+    const data = await response.text(); // or .json()
+    console.log("Response from n8n:", data);
+    res.status(response.status).send(data);
+  } catch (error) {
+    console.error("Error calling n8n endpoint:", error);
+    if (error.status === 404) {
+      res.status(404).send("Start the n8n webhook first!");
     }
-  );
-  const data = await response.text(); // or .json()
-  console.log("Response from n8n:", data);
-  res.status(response.status).send(data);
+  }
 });
 
 app.get("/", (req, res) => {
