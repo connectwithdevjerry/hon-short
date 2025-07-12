@@ -282,7 +282,7 @@ Focus only on extracting values that can be reliably found. Do not infer values 
     // const respData = await makePropmptRequest(threadId);
   } catch (err) {
     console.error(err.response?.data || err.message);
-    res.status(500).send("Upload failed");
+    res.status(422).send("Upload failed or processing error occurred.");
   }
 });
 
