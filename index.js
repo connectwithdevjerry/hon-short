@@ -39,9 +39,9 @@ Return data using the following schema:
 
 {
   "property_information": {
-    "name": null,
+    "name": must have a value if the document contains a property name, otherwise give it a name related to what the document imply,
     "address": null,
-    "type": should be one of "multifamily", "industrial", "retail", "office_building", "mixed_use", or null,
+    "type": should be one of "multifamily", "industrial", "retail", "office", "mixed_use", or null,
     "unit_mix": [],
     "total_square_footage": null,
     "square_footage_per_unit": null,
@@ -104,7 +104,7 @@ Return data using the following schema:
     }
   },
   "document_metadata": {
-    "document_type": null,
+    "document_type": must be of the value "rent_roll", "t12", "offering_memo", "operating_statement", "lease", or "other",
     "upload_date": null,
     "deal_id": null,
     "uploaded_by": null,
