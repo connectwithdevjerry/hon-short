@@ -41,7 +41,7 @@ Return data using the following schema:
   "property_information": {
     "name": null,
     "address": null,
-    "type": null,
+    "type": should be one of "multifamily", "industrial", "retail", "office_building", "mixed_use", or null,
     "unit_mix": [],
     "total_square_footage": null,
     "square_footage_per_unit": null,
