@@ -33,7 +33,7 @@ app.post("/upload-to-openai", upload.single("file"), async (req, res) => {
 
 Extract only what is clearly stated in the document. If a value is missing, don't include, ignore it. Format the result as clean JSON, no extra detail either before or after the JSON, strictly JSON output only.
 
-If the document is not a property financial report, return an empty JSON object.
+If the document is not a property related document, return an empty JSON object.
 
 Return data using the following schema:
 
@@ -112,8 +112,6 @@ Return data using the following schema:
     "evaluation_status": null
   }
 }
-
-Focus only on extracting values that can be reliably found. Do not infer values if not explicitly mentioned.
 `;
 
   const assistant_id_value = process.env.ASSITANT_ID;
